@@ -1,0 +1,342 @@
+[
+  {
+    "draft": {
+      "id": "I-HALL",
+      "summary": "The record hall is open",
+      "interpretation": "A public records clerk grants ordinary daytime access.",
+      "origin": {
+        "kind": "native_oracle",
+        "event": "Q-HALL",
+        "answer": "yes"
+      },
+      "operations": [
+        {
+          "op": "record_fact",
+          "id": "C3",
+          "claim": "The Record Hall is open to public visitors on day 3",
+          "status": "established",
+          "provenance": "native oracle Q-HALL plus player interpretation"
+        },
+        {
+          "op": "learn_fact",
+          "actor": "PC",
+          "fact": "C3"
+        }
+      ],
+      "support_ids": [
+        "C2"
+      ],
+      "belief_ids": [],
+      "actor_id": null,
+      "visible_to": [
+        "PC"
+      ],
+      "public_summary": "The public Record Hall is open today.",
+      "open_questions": [
+        "Will the clerk grant access to the private vault?"
+      ],
+      "base_revision": 7,
+      "base_hash": "fa5db1a509e4a17b598fcf40c1f8c87be28989de682254837004dde53313d6e7"
+    },
+    "review": {
+      "ready": true,
+      "blockers": [],
+      "warnings": [
+        {
+          "code": "disclosure_review",
+          "detail": "Human review must confirm the public summary reveals no hidden information."
+        },
+        {
+          "code": "semantic_review",
+          "detail": "A human/host must check causal plausibility, evidence entailment and rule fit."
+        }
+      ],
+      "proposal_hash": "42225b64eb97105647225298a09b292b962f17f7bb5a773931c4439125c3b976",
+      "at_revision": 7
+    },
+    "approval": {
+      "proposal_hash": "42225b64eb97105647225298a09b292b962f17f7bb5a773931c4439125c3b976",
+      "base_revision": 7,
+      "base_hash": "fa5db1a509e4a17b598fcf40c1f8c87be28989de682254837004dde53313d6e7",
+      "reviewer": "Solo player",
+      "decision_note": "Accepted after reviewing fictional circumstances and interpretation.",
+      "acknowledged_warning_codes": [
+        "disclosure_review",
+        "semantic_review"
+      ]
+    },
+    "player_preview_before_commit": {
+      "available": true,
+      "summary": "The public Record Hall is open today.",
+      "known_support_ids": [
+        "C2"
+      ],
+      "state_changes_committed": false
+    },
+    "committed_event": "I-HALL"
+  },
+  {
+    "draft": {
+      "id": "I-CURRENT",
+      "summary": "The reeve controls the gate",
+      "interpretation": "Public guard orders name the reeve as gate authority.",
+      "origin": {
+        "kind": "observation",
+        "witness": "PC",
+        "basis": "signed standing-orders plaque"
+      },
+      "operations": [
+        {
+          "op": "assert_state",
+          "id": "C4",
+          "state_key": "GATE:controller",
+          "value": "REEVE",
+          "claim": "The reeve currently controls the River Gate",
+          "provenance": "public standing-orders plaque",
+          "replaces": []
+        },
+        {
+          "op": "learn_fact",
+          "actor": "PC",
+          "fact": "C4"
+        }
+      ],
+      "support_ids": [
+        "C1"
+      ],
+      "belief_ids": [],
+      "actor_id": null,
+      "visible_to": [
+        "PC"
+      ],
+      "public_summary": "A public notice names the reeve as the current gate authority.",
+      "open_questions": [],
+      "base_revision": 8,
+      "base_hash": "84d7e455177d7a0649d83a753538c6dbe22d0543dc42fc8c9789a0764017edc3"
+    },
+    "review": {
+      "ready": true,
+      "blockers": [],
+      "warnings": [
+        {
+          "code": "disclosure_review",
+          "detail": "Human review must confirm the public summary reveals no hidden information."
+        },
+        {
+          "code": "semantic_review",
+          "detail": "A human/host must check causal plausibility, evidence entailment and rule fit."
+        }
+      ],
+      "proposal_hash": "de18b2aa56f28ca57c34d99030cf6ef3ec946cfb860db111e9009f430b74fb8e",
+      "at_revision": 8
+    },
+    "approval": {
+      "proposal_hash": "de18b2aa56f28ca57c34d99030cf6ef3ec946cfb860db111e9009f430b74fb8e",
+      "base_revision": 8,
+      "base_hash": "84d7e455177d7a0649d83a753538c6dbe22d0543dc42fc8c9789a0764017edc3",
+      "reviewer": "Solo player",
+      "decision_note": "Accepted after reviewing fictional circumstances and interpretation.",
+      "acknowledged_warning_codes": [
+        "disclosure_review",
+        "semantic_review"
+      ]
+    },
+    "player_preview_before_commit": {
+      "available": true,
+      "summary": "A public notice names the reeve as the current gate authority.",
+      "known_support_ids": [
+        "C1"
+      ],
+      "state_changes_committed": false
+    },
+    "committed_event": "I-CURRENT"
+  },
+  {
+    "draft": {
+      "id": "I-ORDER",
+      "summary": "A signed order is found",
+      "interpretation": "The PC examines a transfer order signed by the reeve.",
+      "origin": {
+        "kind": "observation",
+        "witness": "PC",
+        "basis": "document on the public counter"
+      },
+      "operations": [
+        {
+          "op": "record_fact",
+          "id": "C5",
+          "claim": "The reeve signed an order transferring gate authority to the Carter",
+          "status": "established",
+          "provenance": "direct inspection of dated document"
+        },
+        {
+          "op": "learn_fact",
+          "actor": "PC",
+          "fact": "C5"
+        }
+      ],
+      "support_ids": [],
+      "belief_ids": [],
+      "actor_id": null,
+      "visible_to": [
+        "PC"
+      ],
+      "public_summary": "A signed transfer order names the Carter as incoming gate authority.",
+      "open_questions": [],
+      "base_revision": 9,
+      "base_hash": "284299af9c8cc7a21f2517aa086d49a7c5a74a341aed6ae6692247cf1ab1e905"
+    },
+    "review": {
+      "ready": true,
+      "blockers": [],
+      "warnings": [
+        {
+          "code": "disclosure_review",
+          "detail": "Human review must confirm the public summary reveals no hidden information."
+        },
+        {
+          "code": "uncorroborated",
+          "detail": "No established records are cited; verify the narrated consequence manually."
+        },
+        {
+          "code": "semantic_review",
+          "detail": "A human/host must check causal plausibility, evidence entailment and rule fit."
+        }
+      ],
+      "proposal_hash": "8162e1b799963985037a20eb1e7d4dc5f4ad94647de3b5ee919204b45c16e8fc",
+      "at_revision": 9
+    },
+    "approval": {
+      "proposal_hash": "8162e1b799963985037a20eb1e7d4dc5f4ad94647de3b5ee919204b45c16e8fc",
+      "base_revision": 9,
+      "base_hash": "284299af9c8cc7a21f2517aa086d49a7c5a74a341aed6ae6692247cf1ab1e905",
+      "reviewer": "Solo player",
+      "decision_note": "Accepted after reviewing fictional circumstances and interpretation.",
+      "acknowledged_warning_codes": [
+        "disclosure_review",
+        "semantic_review",
+        "uncorroborated"
+      ]
+    },
+    "player_preview_before_commit": {
+      "available": true,
+      "summary": "A signed transfer order names the Carter as incoming gate authority.",
+      "known_support_ids": [],
+      "state_changes_committed": false
+    },
+    "committed_event": "I-ORDER"
+  },
+  {
+    "rejected_draft": {
+      "id": "I-BAD",
+      "summary": "Two simultaneous controllers",
+      "interpretation": "An unsupported second current controller appears.",
+      "origin": {
+        "kind": "referee",
+        "reason": "A hypothetical invalid example"
+      },
+      "operations": [
+        {
+          "op": "assert_state",
+          "id": "C6-BAD",
+          "state_key": "GATE:controller",
+          "value": "CARTER",
+          "claim": "Carter controls the gate",
+          "provenance": "imagined",
+          "replaces": []
+        }
+      ],
+      "support_ids": [],
+      "belief_ids": [],
+      "actor_id": null,
+      "visible_to": [],
+      "public_summary": "",
+      "open_questions": [],
+      "base_revision": 10,
+      "base_hash": "e3c8beccaa5d4dfed65b92ed9a85d7c08cf7068620d6c7a0441d57e52130f062"
+    },
+    "blocker_codes": [
+      "invalid_transaction"
+    ]
+  },
+  {
+    "draft": {
+      "id": "I-TRANSFER",
+      "summary": "Gate authority transferred",
+      "interpretation": "The witnessed handover puts the Carter in charge and preserves the reeve record as history.",
+      "origin": {
+        "kind": "observation",
+        "witness": "PC",
+        "basis": "posted order and witnessed key exchange"
+      },
+      "operations": [
+        {
+          "op": "assert_state",
+          "id": "C6",
+          "state_key": "GATE:controller",
+          "value": "CARTER",
+          "claim": "The Carter now controls the River Gate",
+          "provenance": "witnessed key exchange following order C5",
+          "replaces": [
+            "C4"
+          ]
+        },
+        {
+          "op": "learn_fact",
+          "actor": "PC",
+          "fact": "C6"
+        }
+      ],
+      "support_ids": [
+        "C4",
+        "C5"
+      ],
+      "belief_ids": [],
+      "actor_id": null,
+      "visible_to": [
+        "PC"
+      ],
+      "public_summary": "The Carter receives the gate keys and assumes authority.",
+      "open_questions": [],
+      "base_revision": 10,
+      "base_hash": "e3c8beccaa5d4dfed65b92ed9a85d7c08cf7068620d6c7a0441d57e52130f062"
+    },
+    "review": {
+      "ready": true,
+      "blockers": [],
+      "warnings": [
+        {
+          "code": "disclosure_review",
+          "detail": "Human review must confirm the public summary reveals no hidden information."
+        },
+        {
+          "code": "semantic_review",
+          "detail": "A human/host must check causal plausibility, evidence entailment and rule fit."
+        }
+      ],
+      "proposal_hash": "202885f14d5a271bf67a412db53789b21f244f8f3d59daf11b303b983c211e8a",
+      "at_revision": 10
+    },
+    "approval": {
+      "proposal_hash": "202885f14d5a271bf67a412db53789b21f244f8f3d59daf11b303b983c211e8a",
+      "base_revision": 10,
+      "base_hash": "e3c8beccaa5d4dfed65b92ed9a85d7c08cf7068620d6c7a0441d57e52130f062",
+      "reviewer": "Solo player",
+      "decision_note": "Accepted after reviewing fictional circumstances and interpretation.",
+      "acknowledged_warning_codes": [
+        "disclosure_review",
+        "semantic_review"
+      ]
+    },
+    "player_preview_before_commit": {
+      "available": true,
+      "summary": "The Carter receives the gate keys and assumes authority.",
+      "known_support_ids": [
+        "C4",
+        "C5"
+      ],
+      "state_changes_committed": false
+    },
+    "committed_event": "I-TRANSFER"
+  }
+]

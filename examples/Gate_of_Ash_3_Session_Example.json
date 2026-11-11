@@ -1,0 +1,452 @@
+{
+  "engine": "Causal Thread",
+  "version": "0.2",
+  "name": "Gate of Ash - Three Sessions",
+  "mode": "native",
+  "day": 3,
+  "scene": 0,
+  "facts": {
+    "C1": {
+      "id": "C1",
+      "claim": "A carved gatehouse lock was replaced",
+      "status": "established",
+      "provenance": "stone filings observed by the PC",
+      "day": 1
+    },
+    "R1": {
+      "id": "R1",
+      "claim": "The reeve ordered the replacement",
+      "status": "rumor",
+      "provenance": "public market gossip",
+      "day": 1
+    },
+    "C2": {
+      "id": "C2",
+      "claim": "The original charter is held in the Record Hall vault",
+      "status": "established",
+      "provenance": "signed public inventory entry",
+      "day": 3
+    }
+  },
+  "actors": {
+    "PC": {
+      "id": "PC",
+      "aim": "Recover the original river charter",
+      "means": [
+        "ask",
+        "inspect"
+      ],
+      "limits": [],
+      "known": [
+        "C1",
+        "C2"
+      ],
+      "believed": [],
+      "risk_tolerance": 2
+    },
+    "REEVE": {
+      "id": "REEVE",
+      "aim": "Protect the village against river raids",
+      "means": [
+        "send runner",
+        "hire guards"
+      ],
+      "limits": [],
+      "known": [],
+      "believed": [],
+      "risk_tolerance": 1,
+      "relations": {
+        "PC": -1
+      }
+    },
+    "CARTER": {
+      "id": "CARTER",
+      "aim": "Protect the ferry trade",
+      "means": [
+        "keep inventory",
+        "escort"
+      ],
+      "limits": [],
+      "known": [],
+      "believed": [],
+      "risk_tolerance": 1
+    }
+  },
+  "goals": {
+    "G1": {
+      "id": "G1",
+      "owner": "PC",
+      "target": "Recover the original river charter",
+      "proof": "physically secure a verified charter",
+      "status": "active",
+      "milestones": [
+        {
+          "day": 3,
+          "description": "Found the charter in the inventory",
+          "evidence": [
+            "C2"
+          ]
+        }
+      ]
+    }
+  },
+  "sites": {
+    "GATE": {
+      "id": "GATE",
+      "name": "Gatehouse",
+      "authority": "REEVE",
+      "connected": [],
+      "affordances": [
+        "public stairs",
+        "river-facing inspection path"
+      ],
+      "leads": [
+        "C1",
+        "R1"
+      ]
+    },
+    "ARCHIVE": {
+      "id": "ARCHIVE",
+      "name": "Record Hall",
+      "authority": "CARTER",
+      "connected": [],
+      "affordances": [
+        "public register",
+        "sealed originals"
+      ],
+      "leads": []
+    }
+  },
+  "threads": {
+    "TH1": {
+      "id": "TH1",
+      "question": "Who replaced the river gate lock?",
+      "site": "GATE",
+      "visible_to": [
+        "PC"
+      ],
+      "status": "open",
+      "deadline_day": 3,
+      "opened_day": 1
+    }
+  },
+  "scenes": [],
+  "events": [
+    {
+      "id": "E1",
+      "day": 1,
+      "action": "Inspected the lock and began asking who replaced it",
+      "effects": [
+        "learn_fact",
+        "open_thread"
+      ],
+      "source": "PC observation",
+      "evidence": []
+    },
+    {
+      "id": "E2",
+      "day": 2,
+      "action": "Day 2: Reeve dispatched a runner",
+      "effects": [
+        "advance_time",
+        "record_attempt"
+      ],
+      "source": "time + faction intent",
+      "evidence": []
+    },
+    {
+      "id": "E3",
+      "day": 2,
+      "action": "The runner was delayed and the reeve grew suspicious",
+      "effects": [
+        "settle_attempt",
+        "set_relation"
+      ],
+      "source": "adjudicated route and response",
+      "evidence": []
+    },
+    {
+      "id": "E4",
+      "day": 3,
+      "action": "Day 3: The PC discovered a charter reference in the public inventory",
+      "effects": [
+        "advance_time",
+        "record_fact",
+        "learn_fact"
+      ],
+      "source": "record inspection",
+      "evidence": []
+    },
+    {
+      "id": "E5",
+      "day": 3,
+      "action": "Recorded a material step toward recovering the charter",
+      "effects": [
+        "mark_goal"
+      ],
+      "source": "PC goal review",
+      "evidence": []
+    }
+  ],
+  "questions": [],
+  "attempts": [
+    {
+      "actor": "REEVE",
+      "window": "day2",
+      "action": "send runner",
+      "means": [
+        "send runner"
+      ],
+      "needs": [],
+      "status": "resolved",
+      "outcome": "partial",
+      "authority": "route conditions adjudicated by referee",
+      "day": 2
+    }
+  ],
+  "decisions": [],
+  "checkpoint": {
+    "engine": "Causal Thread",
+    "version": "0.2",
+    "name": "Gate of Ash - Three Sessions",
+    "mode": "native",
+    "day": 1,
+    "scene": 0,
+    "facts": {
+      "C1": {
+        "id": "C1",
+        "claim": "A carved gatehouse lock was replaced",
+        "status": "established",
+        "provenance": "stone filings observed by the PC",
+        "day": 1
+      },
+      "R1": {
+        "id": "R1",
+        "claim": "The reeve ordered the replacement",
+        "status": "rumor",
+        "provenance": "public market gossip",
+        "day": 1
+      }
+    },
+    "actors": {
+      "PC": {
+        "id": "PC",
+        "aim": "Recover the original river charter",
+        "means": [
+          "ask",
+          "inspect"
+        ],
+        "limits": [],
+        "known": [],
+        "believed": [],
+        "risk_tolerance": 2
+      },
+      "REEVE": {
+        "id": "REEVE",
+        "aim": "Protect the village against river raids",
+        "means": [
+          "send runner",
+          "hire guards"
+        ],
+        "limits": [],
+        "known": [],
+        "believed": [],
+        "risk_tolerance": 1
+      },
+      "CARTER": {
+        "id": "CARTER",
+        "aim": "Protect the ferry trade",
+        "means": [
+          "keep inventory",
+          "escort"
+        ],
+        "limits": [],
+        "known": [],
+        "believed": [],
+        "risk_tolerance": 1
+      }
+    },
+    "goals": {
+      "G1": {
+        "id": "G1",
+        "owner": "PC",
+        "target": "Recover the original river charter",
+        "proof": "physically secure a verified charter",
+        "status": "active",
+        "milestones": []
+      }
+    },
+    "sites": {
+      "GATE": {
+        "id": "GATE",
+        "name": "Gatehouse",
+        "authority": "REEVE",
+        "connected": [],
+        "affordances": [
+          "public stairs",
+          "river-facing inspection path"
+        ],
+        "leads": [
+          "C1",
+          "R1"
+        ]
+      },
+      "ARCHIVE": {
+        "id": "ARCHIVE",
+        "name": "Record Hall",
+        "authority": "CARTER",
+        "connected": [],
+        "affordances": [
+          "public register",
+          "sealed originals"
+        ],
+        "leads": []
+      }
+    },
+    "threads": {},
+    "scenes": [],
+    "events": [],
+    "questions": [],
+    "attempts": [],
+    "decisions": []
+  },
+  "journal": [
+    {
+      "id": "E1",
+      "description": "Inspected the lock and began asking who replaced it",
+      "source": "PC observation",
+      "operations": [
+        {
+          "op": "learn_fact",
+          "actor": "PC",
+          "fact": "C1"
+        },
+        {
+          "op": "open_thread",
+          "id": "TH1",
+          "question": "Who replaced the river gate lock?",
+          "site": "GATE",
+          "visible_to": [
+            "PC"
+          ],
+          "deadline_day": 3
+        }
+      ],
+      "evidence": [],
+      "visible_to": [
+        "PC"
+      ],
+      "revision": 1,
+      "day": 1,
+      "before_hash": "d8163b8e70b00b173a4aaa455dcfeab6357a91f1cab33b0ec730a924c0a49d5e",
+      "after_hash": "8d4ea961bc6f0516b8dcfce3077d161fc4e98be015f065ea63d0f5f2887f6a0c"
+    },
+    {
+      "id": "E2",
+      "description": "Day 2: Reeve dispatched a runner",
+      "source": "time + faction intent",
+      "operations": [
+        {
+          "op": "advance_time",
+          "days": 1
+        },
+        {
+          "op": "record_attempt",
+          "actor": "REEVE",
+          "window": "day2",
+          "action": "send runner",
+          "means": [
+            "send runner"
+          ]
+        }
+      ],
+      "evidence": [],
+      "visible_to": [],
+      "revision": 2,
+      "day": 2,
+      "before_hash": "8d4ea961bc6f0516b8dcfce3077d161fc4e98be015f065ea63d0f5f2887f6a0c",
+      "after_hash": "234770a0e3103e1263b73e648c299495ac310b2c8f5987a49c66aca0c2f1ac97"
+    },
+    {
+      "id": "E3",
+      "description": "The runner was delayed and the reeve grew suspicious",
+      "source": "adjudicated route and response",
+      "operations": [
+        {
+          "op": "settle_attempt",
+          "index": 0,
+          "outcome": "partial",
+          "authority": "route conditions adjudicated by referee"
+        },
+        {
+          "op": "set_relation",
+          "actor": "REEVE",
+          "target": "PC",
+          "stance": -1
+        }
+      ],
+      "evidence": [],
+      "visible_to": [],
+      "revision": 3,
+      "day": 2,
+      "before_hash": "234770a0e3103e1263b73e648c299495ac310b2c8f5987a49c66aca0c2f1ac97",
+      "after_hash": "6c507ea74f2e3e68f3d6d7c4af9bb2cb8d74a14ed4bab8165da976d23335c754"
+    },
+    {
+      "id": "E4",
+      "description": "Day 3: The PC discovered a charter reference in the public inventory",
+      "source": "record inspection",
+      "operations": [
+        {
+          "op": "advance_time",
+          "days": 1
+        },
+        {
+          "op": "record_fact",
+          "id": "C2",
+          "claim": "The original charter is held in the Record Hall vault",
+          "status": "established",
+          "provenance": "signed public inventory entry"
+        },
+        {
+          "op": "learn_fact",
+          "actor": "PC",
+          "fact": "C2"
+        }
+      ],
+      "evidence": [],
+      "visible_to": [
+        "PC"
+      ],
+      "revision": 4,
+      "day": 3,
+      "before_hash": "6c507ea74f2e3e68f3d6d7c4af9bb2cb8d74a14ed4bab8165da976d23335c754",
+      "after_hash": "f507056a135fa5dfa942ab003a42d00bc8b9033dd5364552db37ec6a23f4bb39"
+    },
+    {
+      "id": "E5",
+      "description": "Recorded a material step toward recovering the charter",
+      "source": "PC goal review",
+      "operations": [
+        {
+          "op": "mark_goal",
+          "goal": "G1",
+          "evidence": [
+            "C2"
+          ],
+          "description": "Found the charter in the inventory"
+        }
+      ],
+      "evidence": [],
+      "visible_to": [
+        "PC"
+      ],
+      "revision": 5,
+      "day": 3,
+      "before_hash": "f507056a135fa5dfa942ab003a42d00bc8b9033dd5364552db37ec6a23f4bb39",
+      "after_hash": "680c38045c24b86e37c1b09f8f73c404cf656eb4805e23ffdfdba87042848e60"
+    }
+  ],
+  "revision": 5,
+  "journal_hash": "680c38045c24b86e37c1b09f8f73c404cf656eb4805e23ffdfdba87042848e60"
+}

@@ -1,0 +1,50 @@
+name: Python regression
+
+on:
+  pull_request:
+  push:
+    branches: [main, "feat/**", "chore/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run original and new behavioral tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest discover -s tests -p 'test*.py' -v
+      - name: Validate JSON source data
+        run: |
+          python -m json.tool schemas/campaign_state.schema.json > /dev/null
+          python -m json.tool schemas/interpretation.schema.json > /dev/null
+          python -m json.tool tests/original_tables.json > /dev/null
+          python -m json.tool examples/Gate_of_Ash_v0.3_Interpreted.json > /dev/null
+      - name: Reproduce campaign golden trace
+        env:
+          PYTHONPATH: .
+        run: |
+          python examples/make_v03_example.py
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          for filename in ("examples/Gate_of_Ash_v0.3_Interpreted.json",
+                           "examples/Gate_of_Ash_v0.3_Review_Trace.json"):
+              committed = json.loads(subprocess.check_output(
+                  ["git", "show", f"HEAD:{filename}"], text=True))
+              regenerated = json.loads(Path(filename).read_text(encoding="utf-8"))
+              assert regenerated == committed, f"Campaign replay differs: {filename}"
+          PY
