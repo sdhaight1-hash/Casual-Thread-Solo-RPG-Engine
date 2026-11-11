@@ -1,0 +1,92 @@
+{
+  "project": "Causal Thread",
+  "edition": "0.1",
+  "provenance": "Newly authored illustrative prompts; no PUM, SUM, TBE or WWN table entries copied",
+  "instruction": "Use prompts only to supply missing fiction consistent with established facts; a roll never settles a contested mechanic or grants resources.",
+  "tables": [
+    {"id":"pressure","title":"Pressure arriving","die":"d12","results":[
+      "A scarce resource is promised to two parties",
+      "A working arrangement becomes publicly disputed",
+      "The person who can authorize action is absent",
+      "A routine delay makes an existing deadline matter",
+      "An old obligation is called due",
+      "A necessary route closes for a mundane reason",
+      "Someone refuses a formerly acceptable compromise",
+      "A minor failure exposes a larger dependency",
+      "A witness cannot safely speak openly",
+      "An institution is forced to choose whom to protect",
+      "A costly truth reaches an interested outsider",
+      "An agreement still exists but its enforcement fails"
+    ]},
+    {"id":"opening","title":"An opening appears","die":"d12","results":[
+      "A neglected record becomes accessible",
+      "A rival needs a temporary partner",
+      "The responsible official must appear in public",
+      "A routine shipment reveals where goods move",
+      "A third party will verify a limited claim",
+      "A maintenance problem creates safe access",
+      "A strained alliance offers one honest conversation",
+      "An overlooked route avoids the obvious obstacle",
+      "An old promise can be fulfilled in a new way",
+      "An opponent's plan relies on a fragile assumption",
+      "A neutral specialist is available for hire",
+      "A public custom gives the protagonist a hearing"
+    ]},
+    {"id":"signal","title":"Observable signal","die":"d12","results":[
+      "Fresh marks on a familiar object",
+      "Two accounts disagree on timing",
+      "A guard follows an unusual instruction",
+      "A delivery is made to an unexpected door",
+      "An official mark appears in the wrong context",
+      "A public announcement leaves out one important name",
+      "Someone knows a detail they were not told",
+      "A repeated sound occurs at an inconvenient hour",
+      "A hidden expense appears in ordinary bookkeeping",
+      "A journey takes longer than its stated route allows",
+      "A witness corrects a seemingly insignificant word",
+      "An object is returned carefully altered"
+    ]},
+    {"id":"motive","title":"Underlying personal motive","die":"d12","results":[
+      "Keep a dependent safe from public scrutiny",
+      "Avoid losing a role earned through years of service",
+      "Repay help received at an inconvenient time",
+      "Demonstrate competence to a skeptical superior",
+      "Protect a promise made to someone now absent",
+      "Prevent outsiders from exploiting a local dispute",
+      "Preserve an institution despite disliking its leader",
+      "Obtain enough time to repair a past mistake",
+      "Earn independent standing rather than borrowed prestige",
+      "Keep a damaging but true confession private",
+      "Stop a rival from monopolizing necessary knowledge",
+      "Avoid repeating the last generation's disaster"
+    ]},
+    {"id":"site","title":"Usable place detail","die":"d12","results":[
+      "An entrance used only for maintenance",
+      "A public noticeboard with contradictory dates",
+      "A room that preserves traces of earlier work",
+      "A gathering place outside formal authority",
+      "A natural bottleneck with a safe alternative",
+      "A locked store whose key is held elsewhere",
+      "A work shift during which supervision changes",
+      "A visible repair covering older construction",
+      "A route whose condition depends on weather",
+      "A quiet corner where messages can be exchanged",
+      "A communal resource controlled by custom",
+      "A vantage point offering information, not safety"
+    ]},
+    {"id":"cost","title":"Consequence or negotiated cost","die":"d12","results":[
+      "Lose time but gain a clear deadline",
+      "Owe a favor to an identifiable person",
+      "Expose the protagonist's interest to a rival",
+      "Use up a specifically recorded supply",
+      "Strain an established relationship",
+      "Accept a temporary restriction on access",
+      "Reveal one secret to obtain another",
+      "Bring a neutral party into a public dispute",
+      "Accept evidence that damages an ally's standing",
+      "Choose which of two commitments takes priority",
+      "Surrender a safe position to keep momentum",
+      "Leave evidence of the protagonist's involvement"
+    ]}
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/causal-thread/v0.3/campaign_state.schema.json",
+  "title": "Causal Thread v0.3: checkpointed campaign state",
+  "type": "object",
+  "required": [
+    "engine",
+    "version",
+    "name",
+    "mode",
+    "day",
+    "scene",
+    "facts",
+    "actors",
+    "goals",
+    "sites",
+    "threads",
+    "scenes",
+    "events",
+    "questions",
+    "attempts",
+    "decisions",
+    "checkpoint",
+    "journal",
+    "revision",
+    "journal_hash"
+  ],
+  "properties": {
+    "engine": {
+      "const": "Causal Thread"
+    },
+    "version": {
+      "enum": [
+        "0.2",
+        "0.3"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "native",
+        "tbe"
+      ]
+    },
+    "day": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "scene": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "facts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "id",
+          "claim",
+          "status",
+          "provenance",
+          "day"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "claim": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "proposal",
+              "rumor",
+              "established",
+              "refuted"
+            ]
+          },
+          "provenance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "actors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "id",
+          "aim",
+          "means",
+          "limits",
+          "known",
+          "believed",
+          "risk_tolerance"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "aim": {
+            "type": "string"
+          },
+          "means": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limits": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "known": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "believed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "risk_tolerance": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "site": {
+            "type": "string"
+          },
+          "concealed_from": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "relations": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": -2,
+              "maximum": 2
+            }
+          }
+        }
+      }
+    },
+    "goals": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "id",
+          "owner",
+          "target",
+          "proof",
+          "status",
+          "milestones"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "proof": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "completed",
+              "failed",
+              "abandoned"
+            ]
+          },
+          "milestones": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "completion": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "sites": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "threads": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "day",
+          "action",
+          "effects",
+          "source"
+        ]
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question",
+          "odds",
+          "roll",
+          "answer",
+          "committed"
+        ]
+      }
+    },
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "actor",
+          "window",
+          "action",
+          "means",
+          "status",
+          "day"
+        ]
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "journal_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "checkpoint": {
+      "type": "object"
+    },
+    "journal": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "source",
+          "operations",
+          "revision",
+          "before_hash",
+          "after_hash",
+          "evidence",
+          "visible_to",
+          "day"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "op"
+              ]
+            }
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "before_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "after_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "visible_to": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}
