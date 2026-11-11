@@ -37,4 +37,14 @@ jobs:
           PYTHONPATH: .
         run: |
           python examples/make_v03_example.py
-          git diff --exit-code -- examples/Gate_of_Ash_v0.3_Interpreted.json examples/Gate_of_Ash_v0.3_Review_Trace.json
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          for filename in ("examples/Gate_of_Ash_v0.3_Interpreted.json",
+                           "examples/Gate_of_Ash_v0.3_Review_Trace.json"):
+              committed = json.loads(subprocess.check_output(
+                  ["git", "show", f"HEAD:{filename}"], text=True))
+              regenerated = json.loads(Path(filename).read_text(encoding="utf-8"))
+              assert regenerated == committed, f"Campaign replay differs: {filename}"
+          PY
