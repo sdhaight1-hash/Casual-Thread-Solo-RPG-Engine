@@ -15,13 +15,16 @@ An independently authored, consequence-driven solo roleplaying framework.
 ## Layout
 - `causal_thread.py` — journaled world-state core and replay safeguards.
 - `interpretation.py` — v0.3 proposal / validation / approval / commit protocol.
-- `evidence_assistant.py` — v0.4 evidence-constrained advisory analysis (development branch).
-- `tests/` — regression and scenario tests.
-- `docs/` — design notes and planned workflows.
+- `evidence_assistant.py` — v0.4 read-only, evidence-scoped advisory interface; no AI provider or automatic game rulings.
+- `tests/` — 117 original and v0.4 behavioral tests, plus six original d12 prompt tables.
+- `schemas/` — campaign and interpretation JSON Schemas.
+- `examples/` — reproducible three-session campaign and approval trail.
+- `docs/` — editable v0.3 rules manuscript, provenance and v0.4 interface documentation.
+- `.github/workflows/python-tests.yml` — Python 3.11/3.13 regression, JSON and replay checks.
 
 ## Run tests
 ```bash
-python -m unittest discover -s tests -v
+python -m unittest discover -s tests -p 'test*.py' -v
 ```
 
 No external Python dependencies are required for the reference engine.
